@@ -1,0 +1,1 @@
+web: gunicorn projectbuddies2.wsgi
