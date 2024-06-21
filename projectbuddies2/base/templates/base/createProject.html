@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale-1">
+    <title>Post Project | Project Buddies</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/createProject.css' %}">
+    <script src="https://kit.fontawesome.com/6d596fc569.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</head>
+    <div class="block" id="block">
+        <div class="close-block" onclick="closeNoti()"></div>
+            <div class="notifications-container" id="notifications">
+                <div class="notifications-wrapper">
+                {% for noti in notifications %}
+                    <div class="notification" id="notification">
+                        <div class="noti-header">
+                            <div class="message-wrapper">
+                                {% if noti.reminder != True %}
+                                    <a href="{% url 'profile' noti.sender.id %}">{{noti.sender}}</a>
+                                {% endif %}
+                                <h3>{{noti.message}}</h3>
+                            </div>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="noti-button-wrapper">
+                                    <button id="closeNotification" name="closeNotification" value="{{noti.id}}"><i class="bi bi-x-lg"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="confirm-wrapper">
+                            {% if noti.reminder == False %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                <button name="accept" value="{{noti.id}}" class="btn-accept">Accept</button>
+                            </form>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <button name="closeNotification" value="{{noti.id}}" class="btn-decline">Decline</button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+    </div>
+
+    <div class="nav" id="nav">
+        <div class="logo-holder">
+            <h1 class="big-logo">PROJECT<span class="header-text">BUDDIES</span></h1>
+            <h1 class="small-logo">P<span class="header-text">B</span></h1>
+        </div>
+        <div class="link-holder">
+            <a href="{% url 'home' %}"><i class="bi bi-search"></i><span class="a-text">Find Project</span></a>
+            <a href="{% url 'create-project' %}"><i class="bi bi-plus-square"></i><span class="a-text">Post Project</span></a>
+            <a href="{% url 'user-projects' %}"><i class="bi bi-folder"></i><span class="a-text">My Projects</span></a>
+            <a href="{% url 'bookmarks' %}"><i class="bi bi-bookmark"></i><span class="a-text">Bookmarked Projects</span></a>
+            <div class="break"></div>
+            <a href="{% url 'profile' request.user.id %}"><i class="bi bi-person"></i><span class="a-text"> View My Profile</span></a>
+            <a onclick="notifications()"><i class="bi bi-bell"></i><span class="a-text"> Notifications</span></a>
+            <a href="{% url 'logout' %}"><i class="bi bi-box-arrow-left"></i><span class="a-text"> Log Out</span></a>
+
+        </div>
+    </div>
+
+    <div class="main">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h5 class="post-text">Name Your Post</h5>
+            {{form.name}}
+
+            <h5 class="category-text">Select Category</h5>
+            <div class="categories">
+                {% for category in categories %}
+                    <input type="radio" name="category" value="{{category.id}}" id="{{category.id}}">
+                    <label for="{{category.id}}">{{category}}</label>
+                {% endfor %}
+            </div>
+
+            <h5 class="skill-text">Select Skills You Are Looking For</h5>
+            <div class="skills" id="id_skillsNeeded">
+                {% for skill in skills %}
+                    <input type="checkbox" name="skillsNeeded" value="{{skill.id}}" id="{{skill}}">
+                    <label name="skillsNeeded" for="{{skill}}">{{skill}}</label>
+                {% endfor %}
+            </div>
+
+            <h5 class="description-label">Explain What Your Project Is Going To Be About</h5>
+            <textarea class="description" type="text" maxlength="380" name="description"></textarea>
+
+            <h5 class="image-label">Select Image For Your Project</h5>
+            <input class="add" name="image" type="file" id="file" accept="image/*">
+            <label for="file" id="project-image" class="drop-box">Choose Image</label>
+
+            <div class="button-wrap-dropbox">
+                <button class="x">Post Project</button>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'javascript/projectPicture.js' %}"></script>
+    <script src="{% static 'javascript/notifications.js' %}"></script>
+</body>
+</html>
