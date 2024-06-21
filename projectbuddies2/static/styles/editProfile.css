@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body{
+    background: #131313;
+}
+
+.nav{
+    position: fixed;
+    background: #202020;
+    width: 270px;
+    height: 100%;
+    border: 1px solid #2D2D2D;
+    padding-top: 20px;
+}
+
+.small-logo{
+    display: none;
+}
+
+.logo-holder{
+    width: 100%;
+    text-align: center;
+}
+
+.nav h1{
+    color: #AB372E;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    padding-bottom: 60px;
+}
+
+.a-text{
+    padding-left: 13px;
+}
+
+.header-text{
+    color: white;
+}
+
+.nav a{
+    font-style: normal;
+    font-weight: 450;
+    font-size: 15px;
+    color: #C8C8C8;
+    width: 200px;
+    padding: 10px 0;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+.nav a:hover{
+    background-color: #2d2d2d;
+}
+
+.link-holder{
+    padding-left: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.break{
+    width: 90%;
+    margin-left: 10px;
+    margin-top: 20px;
+    height: 1.2px;
+    background-color: #3A3A3A;
+    background: linear-gradient(90deg,  #202020 0%, #2d2d2d 50%,  #202020);
+}
+
+
+.main{
+    background: url("/static/images/background2.png");
+    background-size: 100%;
+    background-repeat: repeat-y;
+    position: relative;
+
+    margin-left: 270px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    align-items: center;
+    gap: 55px;
+}
+
+.avatar-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.avatar{
+    display: inline-block;
+    height: 0;
+    width: 0;
+}
+
+.main form{
+    width: 40%;
+}
+
+.avatar-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border: solid 1px #333;
+    border-radius: 50%;
+
+    background-size: cover;
+    cursor: pointer;
+}
+
+#current-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    padding-bottom: 10px;
+    margin-top: 25px;
+}
+
+.container input[type='text']{
+    width: 100%;
+    height: 30px;
+    font-size: 13px;
+    background: #202020;
+    outline: none;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #2D2D2D;
+    border-radius: 1px;
+    padding-left: 10px;
+    color: #E8E8E8;
+}
+
+.bio{
+    width: 100%;
+    height: 200px;
+    background: #202020;
+    border: 1px solid #2D2D2D;
+    padding: 10px 10px;
+    color: #C8C8C8;
+}
+
+.bio:focus{
+    outline: none;
+}
+
+.container h4{
+    color: #8f8f8f;
+}
+
+.container div:not(.skills){
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container select{
+    width: 100%;
+    height: 35px;
+    font-size: 13px;
+    background: #202020;
+    outline: none;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #2D2D2D;
+    border-radius: 1px;
+    padding-left: 10px;
+    color: #E8E8E8;
+}
+
+.skills{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: -20px;
+}
+
+input[type='checkbox']{
+    opacity: 0;
+    width: 0;
+    text-align: center;
+}
+
+input[type="checkbox"]:checked + label{
+    background: #F17C1E;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
+    transform: translate(0, -4px);
+}
+
+.skills label{
+    color: #C8C8C8;
+    background-color: #202020;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 5px;
+    height: 30px;
+
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+
+.container button{
+    height: 50px;
+    border-radius: 5px;
+    background: #F17C1E;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+
+.container button:hover{
+    background: #f28a36;
+}
+
+.block{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 2;
+    display: none;
+}
+
+.close-block{
+    width: 60%;
+    height: 100vh;
+}
+
+.notifications-container{
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    bottom: 0;
+    right: 0;
+    width: 40%;
+    background: #202020;
+    border: 1px solid #2D2D2D;
+}
+
+.notifications-wrapper{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
+    gap: 30px;
+    padding-left: 14px;
+    padding-top: 20px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.notification{
+    background: #2a2a2a;
+    min-height: 100px;
+    border-radius: 3px;
+    color: #C8C8C8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+    gap: 10px;
+    border: 2px solid #2D2D2D;
+}
+
+.noti-header{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.message-wrapper{
+    display: flex;
+    gap: 7px;
+    width: 90%;
+}
+
+.message-wrapper a{
+    color: #C8C8C8;
+    font-size: 19px;
+}
+
+.message-wrapper a:hover{
+    text-decoration: underline;
+}
+
+.noti-button-wrapper{
+    margin-top: -50%;
+}
+
+.noti-header button{
+    background: none;
+    border: none;
+}
+
+.bi-x-lg{
+    color: #C8C8C8;
+    font-size: 18px;
+}
+
+.confirm-wrapper{
+    display: flex;
+    gap: 10px;
+}
+
+.confirm-wrapper form{
+    width: fit-content;
+}
+
+.confirm-wrapper button{
+    background: #2a2a2a;
+    border: none;
+}
+
+.btn-accept{
+    color: #F17C1E;
+    padding-right: 5px;
+}
+
+.btn-decline{
+    color: #e50000;
+}
+
+.btn-decline:hover{
+    color: #ce0000;
+}
+
+.btn-accept:hover{
+    color: #e76f0e;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2d2d;
+}
+
+@media (max-width:1024px){
+    .join-btn-wrapper{
+        left: 79%;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #202020 inset !important;
+     -webkit-text-fill-color: #E8E8E8 !important;
+}
+
+@media (max-device-width: 480px){
+    .nav{
+        width: 100px;
+    }
+
+    .big-logo{
+        display: none;
+    }
+
+    .nav h1{
+        font-size: 60px;
+    }
+
+    .small-logo{
+        display: block;
+    }
+
+    .nav .a-text{
+        display: none;
+    }
+
+    .nav a{
+        font-size: 42px;
+    }
+
+    .link-holder{
+        gap: 23px;
+    }
+
+    .nav .bi-bookmark{
+        font-size: 42px;
+    }
+
+    .main{
+        margin-left: 100px;
+        background-size: 300%;
+    }
+
+    .main form{
+        width: 80%;
+    }
+
+    .avatar-label{
+        height: 150px;
+        width: 150px;
+    }
+
+    .profession h4{
+        font-size: 30px;
+    }
+
+    .container input[type='text']{
+        width: 100%;
+        height: 50px;
+        font-size: 30px;
+        border-radius: 2px;
+    }
+
+    .location-text{
+        font-size: 30px;
+    }
+
+    .bio-text{
+        font-size: 30px;
+    }
+
+    .container select{
+        height: 50px;
+        font-size: 30px;
+        border-radius: 2px;
+    }
+
+    .container select option{
+        font-size: 16px;
+    }
+
+    .skills-text{
+        font-size: 30px;
+    }
+
+    .skills{
+        margin-top: -40px;
+    }
+
+    .skills label{
+        border-radius: 7px;
+        height: 35px;
+        font-size: 23px;
+    }
+
+    .container div:not(.skills){
+        gap: 7px;
+    }
+
+    .container{
+        gap: 55px;
+        margin-top: 50px;
+    }
+
+    .container button{
+        height: 65px;
+        border-radius: 7px;
+        font-size: 30px;
+    }
+
+    .notifications-container{
+        width: 70%;
+    }
+
+    .notification{
+        min-height: 200px;
+    }
+
+    .message-wrapper{
+        gap: 15px;
+    }
+
+    .message-wrapper a{
+        font-size: 50px;
+    }
+
+    .message-wrapper h3{
+        font-size: 40px;
+    }
+
+    .bi-x-lg{
+        font-size: 40px;
+    }
+
+    .confirm-wrapper button{
+        font-size: 30px;
+        margin-top: 20px;
+    }
+}

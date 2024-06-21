@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body{
+    background: #131313;
+}
+
+.header{
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    color: white;
+}
+
+form{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    width: 23%;
+}
+
+.container div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container input{
+    width: 100%;
+    height: 30px;
+    font-size: 13px;
+    background: #2d2d2d;
+    outline: none;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #4c4c4c;
+    border-radius: 2px;
+    padding-left: 10px;
+    color: #E8E8E8;
+}
+
+.container h4{
+    color: #8f8f8f;
+}
+
+button{
+    background: #F17C1E;
+    color: white;
+    height: 40px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+}
+
+.signup{
+    padding-top: 7px;
+    font-weight: 500;
+}
+
+span{
+    padding-left: 20px;
+}
+
+a{
+    color: #626262;
+}
+
+a:hover{
+    color: #a5a5a5;
+    text-decoration: underline;
+}
+
+.link-wrapper{
+    text-align: center;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #2d2d2d inset !important;
+     -webkit-text-fill-color: #E8E8E8 !important;
+}
+
+@media (max-device-width: 480px){
+    .header h2{
+        font-size: 70px;
+        margin-top: 50px;
+    }
+
+    form{
+        width: 60%;
+    }
+
+    .container div{
+        gap: 7px;
+    }
+
+    .container input{
+        width: 100%;
+        height: 50px;
+        font-size: 30px;
+    }
+
+    .container h4{
+        font-size: 34px;
+    }
+
+    button{
+        font-size: 30px;
+        height: 55px;
+        border-radius: 7px;
+        margin-top: 10px;
+    }
+}
